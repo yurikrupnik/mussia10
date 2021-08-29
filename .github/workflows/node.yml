@@ -53,9 +53,9 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
-      - run: npm i -g nx
-      - name: Build
-        run: nx build robin
+#      - run: npm i -g nx
+#      - name: Build
+#        run: nx build robin
 #
 #      - name: Unit tests
 #        run: npm run test -- --since
