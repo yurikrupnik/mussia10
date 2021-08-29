@@ -24,13 +24,13 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: "0"
-      - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+#      - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
           #          always-auth: true
-          node-version: '14.x'
-          registry-url: https://registry.npmjs.org/
+          node-version: '16.x'
+#          registry-url: https://registry.npmjs.org/
 
       #      - name: Cache node modules
       #        uses: actions/cache@v2
@@ -45,8 +45,8 @@ jobs:
       #            ${{ runner.os }}-build-
       #            ${{ runner.os }}-
 
-      - run: git config --global user.email krupnik.yuri@gmail.com && git config --global user.name yurikrupnik
-      - run: echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
+#      - run: git config --global user.email krupnik.yuri@gmail.com && git config --global user.name yurikrupnik
+#      - run: echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
 
       - name: Install dependencies
         run: npm ci
