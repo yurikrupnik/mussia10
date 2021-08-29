@@ -43,6 +43,7 @@
     "@nrwl/tao": "12.8.0",
     "@nrwl/web": "12.8.0",
     "@nrwl/workspace": "12.8.0",
+    "@nx-go/nx-go": "^1.7.1",
     "@nx-tools/nx-docker": "^1.0.5",
     "@testing-library/react": "11.2.6",
     "@testing-library/react-hooks": "7.0.1",

@@ -122,6 +122,14 @@
             "jestConfig": "apps/batman-api/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "docker": {
+          "executor": "@nx-tools/nx-docker:build",
+          "options": {
+            "file": "apps/batman-api/Dockerfile",
+            "push": false,
+            "tags": ["mussia10/batman-api:latest", "mussia10/batman-api:v1"]
+          }
         }
       }
     },
@@ -147,6 +155,32 @@
           "options": {
             "lintFilePatterns": ["apps/batman-e2e/**/*.{js,ts}"]
           }
+        }
+      }
+    },
+    "go-api": {
+      "projectType": "application",
+      "root": "apps/go-api",
+      "sourceRoot": "apps/go-api",
+      "targets": {
+        "build": {
+          "executor": "@nx-go/nx-go:build",
+          "options": {
+            "outputPath": "dist/apps/go-api",
+            "main": "apps/go-api/main.go"
+          }
+        },
+        "serve": {
+          "executor": "@nx-go/nx-go:serve",
+          "options": {
+            "main": "apps/go-api/main.go"
+          }
+        },
+        "test": {
+          "executor": "@nx-go/nx-go:test"
+        },
+        "lint": {
+          "executor": "@nx-go/nx-go:lint"
         }
       }
     },
@@ -223,6 +257,27 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/robin-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "util-interfaces": {
+      "root": "libs/util-interfaces",
+      "sourceRoot": "libs/util-interfaces/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/util-interfaces/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/util-interfaces"],
+          "options": {
+            "jestConfig": "libs/util-interfaces/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }

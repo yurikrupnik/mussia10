@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  db:
+    image: mongo
+    ports:
+      - 27017:27017
+  batman-api:
+    image: gcr.io/mussia8/batman-api
+    build:
+      context: apps/batman-api
+      dockerfile: Dockerfile
+    container_name: batman-api
+    environment:
+      - DB_URL=mongodb://db/mussia8
+    ports:
+      - 3333:3333
+#    command: npm run start

@@ -38,12 +38,18 @@
       "tags": [],
       "implicitDependencies": ["batman"]
     },
+    "go-api": {
+      "tags": []
+    },
     "robin": {
       "tags": []
     },
     "robin-e2e": {
       "tags": [],
       "implicitDependencies": ["robin"]
+    },
+    "util-interfaces": {
+      "tags": []
     }
   }
 }
