@@ -53,8 +53,8 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
-#      - name: Tsc
-#        run: npm run tsc -- --since
+      - name: Tsc
+        run: npm i -g nx
 #
       - name: Lint
         run: npm nx build robin
