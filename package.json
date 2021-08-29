@@ -9,6 +9,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/architect": "^0.1202.3",
     "@emotion/react": "11.1.5",
     "@emotion/server": "11.0.0",
     "@emotion/styled": "11.1.5",
