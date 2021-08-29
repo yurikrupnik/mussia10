@@ -31,6 +31,9 @@
     "batman": {
       "tags": []
     },
+    "batman-api": {
+      "tags": ["backend"]
+    },
     "batman-e2e": {
       "tags": [],
       "implicitDependencies": ["batman"]

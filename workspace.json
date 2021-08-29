@@ -49,7 +49,8 @@
           "executor": "@nrwl/web:dev-server",
           "options": {
             "buildTarget": "batman:build",
-            "hmr": true
+            "hmr": true,
+            "proxyConfig": "apps/batman/proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -69,6 +70,56 @@
           "outputs": ["coverage/apps/batman"],
           "options": {
             "jestConfig": "apps/batman/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "batman-api": {
+      "root": "apps/batman-api",
+      "sourceRoot": "apps/batman-api/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/batman-api",
+            "main": "apps/batman-api/src/main.ts",
+            "tsConfig": "apps/batman-api/tsconfig.app.json",
+            "assets": ["apps/batman-api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/batman-api/src/environments/environment.ts",
+                  "with": "apps/batman-api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "batman-api:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/batman-api/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/batman-api"],
+          "options": {
+            "jestConfig": "apps/batman-api/jest.config.js",
             "passWithNoTests": true
           }
         }
