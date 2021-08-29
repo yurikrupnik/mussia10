@@ -57,7 +57,7 @@ jobs:
 #        run: npm run tsc -- --since
 #
       - name: Lint
-        run: nx build robin
+        run: npm nx build robin
 #
 #      - name: Unit tests
 #        run: npm run test -- --since
