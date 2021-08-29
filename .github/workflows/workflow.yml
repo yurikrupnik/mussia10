@@ -20,6 +20,7 @@ jobs:
         with:
           node-version: "16.x"
       - run: npm install -g nx
+      - run: npm ci
       - uses: mansagroup/nrwl-nx-action@v2
         with:
           targets: lint,build,test,deploy
