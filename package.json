@@ -5,7 +5,10 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "lint:some": "npx nx run-many --target=serve --projects=batman,batman-api --parallel=true",
+    "lint": "npx nx run-many --target=lint --parallel --all",
+    "lint:1": "npx nx run batman:lint"
   },
   "private": true,
   "dependencies": {
