@@ -28,6 +28,9 @@
     ]
   },
   "projects": {
+    "avatar": {
+      "tags": []
+    },
     "batman": {
       "tags": []
     },
@@ -41,12 +44,21 @@
     "go-api": {
       "tags": []
     },
+    "pagination": {
+      "tags": []
+    },
+    "poc-page": {
+      "tags": []
+    },
     "robin": {
       "tags": []
     },
     "robin-e2e": {
       "tags": [],
       "implicitDependencies": ["robin"]
+    },
+    "text-with-border": {
+      "tags": []
     },
     "util-interfaces": {
       "tags": []

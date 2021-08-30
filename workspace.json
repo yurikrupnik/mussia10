@@ -1,6 +1,27 @@
 {
   "version": 2,
   "projects": {
+    "avatar": {
+      "root": "libs/avatar",
+      "sourceRoot": "libs/avatar/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/avatar/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/avatar"],
+          "options": {
+            "jestConfig": "libs/avatar/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "batman": {
       "root": "apps/batman",
       "sourceRoot": "apps/batman/src",
@@ -184,6 +205,48 @@
         }
       }
     },
+    "pagination": {
+      "root": "libs/pagination",
+      "sourceRoot": "libs/pagination/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/pagination/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/pagination"],
+          "options": {
+            "jestConfig": "libs/pagination/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "poc-page": {
+      "root": "libs/poc-page",
+      "sourceRoot": "libs/poc-page/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/poc-page/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/poc-page"],
+          "options": {
+            "jestConfig": "libs/poc-page/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "robin": {
       "root": "apps/robin",
       "sourceRoot": "apps/robin",
@@ -257,6 +320,27 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/robin-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "text-with-border": {
+      "root": "libs/text-with-border",
+      "sourceRoot": "libs/text-with-border/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/text-with-border/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/text-with-border"],
+          "options": {
+            "jestConfig": "libs/text-with-border/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }

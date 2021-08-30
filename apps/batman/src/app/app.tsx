@@ -1,3 +1,4 @@
+import { PocPage } from '@mussia10/poc-page';
 import styles from './app.module.scss';
 
 import { ReactComponent as Logo } from './logo.svg';
@@ -28,6 +29,7 @@ export function App() {
             <Link to="/page-2">Page 2</Link>
           </li>
         </ul>
+        <PocPage />
       </div>
       <Route
         path="/"
