@@ -28,6 +28,7 @@ jobs:
       - run: npx nx affected --target=test --parallel --max-parallel=2
       - run: npx nx affected --target=lint --parallel --max-parallel=2
       - run: npx nx affected --target=e2e --parallel --max-parallel=3
+      - run: npx nx-cloud stop-all-agents
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@master
         with:
@@ -42,7 +43,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 #      - run: docker stop $(docker ps -aq)
-      - run: npx nx-cloud stop-all-agents
   pr:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' }}
