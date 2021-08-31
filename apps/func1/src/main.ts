@@ -1,8 +1,8 @@
-import { PubSub } from "@google-cloud/pubsub";
-import type { Request, Response } from "express";
+import { PubSub } from '@google-cloud/pubsub';
+import type { Request, Response } from 'express';
 const pubsub = new PubSub();
 
-type events = "be-1" | "agent-1" | "fe-1" | "gw-1" | "be_logs";
+type events = 'be-1' | 'agent-1' | 'fe-1' | 'gw-1' | 'be_logs' | 'a';
 
 function publishPubSubMessage(topic: events, message: any) {
   const buffer = Buffer.from(JSON.stringify(message));
@@ -10,14 +10,14 @@ function publishPubSubMessage(topic: events, message: any) {
 }
 
 const func1 = (req: Request, res: Response) => {
-  const { topic }  = req.body;
+  const { topic } = req.body;
   delete req.body.topic;
   publishPubSubMessage(topic, req.body)
     .then(() => {
       res.status(204).send();
     })
     .catch((err) => {
-      console.log("Failed send PubSub topic", err); // eslint-disable-line
+      console.log('Failed send PubSub topic', err); // eslint-disable-line
     });
 };
 
