@@ -31,12 +31,11 @@ jobs:
 #      - run: |-
 #          gcloud --quiet auth configure-docker
       - run: npx nx-cloud start-ci-run
-      - run: npx nx affected --target=build --parallel --max-parallel=3
+      - run: npx nx affected --target=build --parallel --max-parallel=3 --prod
       - run: npx nx affected --target=test --parallel --max-parallel=2
       - run: npx nx affected --target=lint --parallel --max-parallel=2
       - run: npx nx affected --target=e2e --parallel --max-parallel=3
 #      - run: npx nx affected --target=deploy --parallel --max-parallel=1
-      - run: npx nx-cloud stop-all-agents
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@master
         with:
@@ -45,11 +44,12 @@ jobs:
       - run: |-
           gcloud --quiet auth configure-docker
       - name: GCP deploy
-        run: npx nx run-many --target=deploy --parallel --all
+        run: npx nx run-many --target=deploy --parallel --all --max-parallel=3
         if: github.ref == 'refs/heads/master'
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      - run: npx nx-cloud stop-all-agents
 #      - run: docker stop $(docker ps -aq)
   pr:
     runs-on: ubuntu-latest
