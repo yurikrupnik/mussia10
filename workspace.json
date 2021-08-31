@@ -218,7 +218,7 @@
           "executor": "@nrwl/workspace:run-commands",
           "outputs": [],
           "options": {
-            "command": "pulumi up -y"
+            "command": "cd pil && pulumi up -y"
           }
         }
       }
