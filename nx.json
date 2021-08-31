@@ -38,9 +38,13 @@
       "tags": [],
       "implicitDependencies": ["batman"]
     },
+    "func1": {
+      "tags": []
+    },
     "go-api": {
       "tags": []
     },
+    "my-package1": {},
     "robin": {
       "tags": []
     },
