@@ -37,7 +37,7 @@ jobs:
           gcloud --quiet auth configure-docker
       - name: GCP deploy
         run: npx nx run-many --target=deploy --parallel --all
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
