@@ -214,11 +214,20 @@
             "command": "gcloud functions deploy func1 --runtime nodejs14 --trigger-http --region europe-west1 --allow-unauthenticated --entry-point=func1 --source=dist/apps/func1"
           }
         },
-        "deploy1": {
+        "up-pulumi": {
           "executor": "@nrwl/workspace:run-commands",
           "outputs": [],
           "options": {
-            "command": "cd pil && pulumi up -y"
+            "command": "pulumi up -y",
+            "cwd": "apps/func1/pulumi"
+          }
+        },
+        "down-pulumi": {
+          "executor": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "pulumi destroy -y",
+            "cwd": "apps/func1/pulumi"
           }
         }
       }

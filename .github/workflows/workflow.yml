@@ -28,6 +28,19 @@ jobs:
       - run: npx nx affected --target=test --parallel --max-parallel=2
       - run: npx nx affected --target=lint --parallel --max-parallel=2
       - run: npx nx affected --target=e2e --parallel --max-parallel=3
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@master
+        with:
+          project_id: mussia8
+          service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+        - run: |-
+            gcloud --quiet auth configure-docker
+        - name: GCP deploy
+          run: npx nx run-many --target=deploy --parallel --all
+          if: github.ref == 'refs/heads/main'
+          env:
+            NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+            NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 #      - run: docker stop $(docker ps -aq)
       - run: npx nx-cloud stop-all-agents
   pr:
