@@ -15,11 +15,21 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@material-ui/core": [
+        "./libs/theme-provider/src",
+        "./node_modules/@material-ui/core"
+      ],
+      "@material-ui/core/*": [
+        "./libs/theme-provider/src/*",
+        "./node_modules/@material-ui/core/*"
+      ],
       "@mussia10/avatar": ["libs/avatar/src/index.ts"],
       "@mussia10/pagination": ["libs/pagination/src/index.ts"],
       "@mussia10/poc-page": ["libs/poc-page/src/index.ts"],
       "@mussia10/text-with-border": ["libs/text-with-border/src/index.ts"],
-      "@mussia10/util-interfaces": ["libs/util-interfaces/src/index.ts"]
+      "@mussia10/theme-provider": ["libs/theme-provider/src/index.ts"],
+      "@mussia10/util-interfaces": ["libs/util-interfaces/src/index.ts"],
+      "@perimeter_81/button1": ["libs/button1/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -14,8 +14,7 @@ const createClasses = makeStyles((theme) => ({
     height: theme.spacing(4),
   },
   initials: {
-    // ...theme.typography.caption1 // Try with theme provider
-    ...theme.typography.caption,
+    ...theme.typography.caption1, // Try with theme provider
   },
   icon: {
     width: '16px',

@@ -41,14 +41,25 @@
       "tags": [],
       "implicitDependencies": ["batman"]
     },
+    "button1": {
+      "tags": []
+    },
     "go-api": {
       "tags": []
     },
     "pagination": {
       "tags": []
     },
+    "pagination-e2e": {
+      "tags": [],
+      "implicitDependencies": ["pagination"]
+    },
     "poc-page": {
       "tags": []
+    },
+    "poc-page-e2e": {
+      "tags": [],
+      "implicitDependencies": ["poc-page"]
     },
     "robin": {
       "tags": []
@@ -58,6 +69,9 @@
       "implicitDependencies": ["robin"]
     },
     "text-with-border": {
+      "tags": []
+    },
+    "theme-provider": {
       "tags": []
     },
     "util-interfaces": {

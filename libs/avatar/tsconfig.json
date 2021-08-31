@@ -9,6 +9,18 @@
     "strict": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
+
+    // "baseUrl": ".",
+    // "paths": {
+    //   "@material-ui/core/*": [
+    //     "../theme-provider/src/lib/*",
+    //     "../../node_modules/@material-ui/core/*"
+    //   ],
+    //   "@material-ui/core": [
+    //     "../theme-provider/src/lib",
+    //     "../../node_modules/@material-ui/core"
+    //   ]
+    // }
   },
   "files": [],
   "include": [],

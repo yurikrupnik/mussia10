@@ -113,6 +113,9 @@ const PaginationComponent = memo((props: PaginationComponentProps) => {
 });
 
 export interface PaginationProps {
+  /**
+   * Current page, starts count from 0
+   */
   page: number;
   onChangePage: TablePaginationProps['onPageChange'];
   count: number;

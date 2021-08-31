@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import Pagination from './pagination';
+import ThemeProvider from './theme-provider';
 
-describe('Pagination', () => {
+describe('ThemeProvider', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Pagination />);
+    const { baseElement } = render(<ThemeProvider />);
     expect(baseElement).toBeTruthy();
   });
 });
