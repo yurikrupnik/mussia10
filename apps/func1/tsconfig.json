@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "files": [],
   "include": [],
-  "exclude": ["pulumi/**"],
+  "exclude": ["pulumi/**", "pulumi/*.ts"],
   "references": [
     {
       "path": "./tsconfig.app.json"
