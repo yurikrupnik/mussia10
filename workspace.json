@@ -251,6 +251,80 @@
         }
       }
     },
+    "func1": {
+      "root": "apps/func1",
+      "sourceRoot": "apps/func1/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/func1",
+            "main": "apps/func1/src/main.ts",
+            "tsConfig": "apps/func1/tsconfig.app.json",
+            "assets": ["apps/func1/src/assets"],
+            "generatePackageJson": true
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/func1/src/environments/environment.ts",
+                  "with": "apps/func1/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "func1:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/func1/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/func1"],
+          "options": {
+            "jestConfig": "apps/func1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "deploy": {
+          "executor": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "gcloud functions deploy func1 --runtime nodejs14 --trigger-http --region europe-west1 --allow-unauthenticated --entry-point=func1 --source=dist/apps/func1"
+          }
+        },
+        "up-pulumi": {
+          "executor": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "pulumi up -y",
+            "cwd": "apps/func1/pulumi"
+          }
+        },
+        "down-pulumi": {
+          "executor": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "pulumi destroy -y",
+            "cwd": "apps/func1/pulumi"
+          }
+        }
+      }
+    },
     "go-api": {
       "projectType": "application",
       "root": "apps/go-api",
@@ -430,6 +504,9 @@
           }
         }
       }
+    },
+    "my-package1": {
+      "root": "libs/my-package1"
     },
     "robin": {
       "root": "apps/robin",

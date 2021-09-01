@@ -65,6 +65,10 @@
       "tags": [],
       "implicitDependencies": ["poc-page"]
     },
+    "func1": {
+      "tags": []
+    },
+    "my-package1": {},
     "robin": {
       "tags": []
     },
