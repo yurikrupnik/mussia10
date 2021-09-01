@@ -28,6 +28,9 @@
     ]
   },
   "projects": {
+    "avatar": {
+      "tags": []
+    },
     "batman": {
       "tags": []
     },
@@ -38,10 +41,31 @@
       "tags": [],
       "implicitDependencies": ["batman"]
     },
-    "func1": {
+    "button1": {
       "tags": []
     },
+    "e2e-storybook-e2e": {
+      "tags": [],
+      "implicitDependencies": ["storybook"]
+    },
     "go-api": {
+      "tags": []
+    },
+    "pagination": {
+      "tags": []
+    },
+    "pagination-e2e": {
+      "tags": [],
+      "implicitDependencies": ["pagination"]
+    },
+    "poc-page": {
+      "tags": []
+    },
+    "poc-page-e2e": {
+      "tags": [],
+      "implicitDependencies": ["poc-page"]
+    },
+    "func1": {
       "tags": []
     },
     "my-package1": {},
@@ -51,6 +75,15 @@
     "robin-e2e": {
       "tags": [],
       "implicitDependencies": ["robin"]
+    },
+    "storybook": {
+      "tags": []
+    },
+    "text-with-border": {
+      "tags": []
+    },
+    "theme-provider": {
+      "tags": []
     },
     "util-interfaces": {
       "tags": []

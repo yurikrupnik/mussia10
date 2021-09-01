@@ -1,6 +1,27 @@
 {
   "version": 2,
   "projects": {
+    "avatar": {
+      "root": "libs/avatar",
+      "sourceRoot": "libs/avatar/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/avatar/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/avatar"],
+          "options": {
+            "jestConfig": "libs/avatar/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "batman": {
       "root": "apps/batman",
       "sourceRoot": "apps/batman/src",
@@ -158,6 +179,78 @@
         }
       }
     },
+    "button1": {
+      "root": "libs/button1",
+      "sourceRoot": "libs/button1/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/button1",
+            "tsConfig": "libs/button1/tsconfig.lib.json",
+            "project": "libs/button1/package.json",
+            "entryFile": "libs/button1/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/button1/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/button1/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/button1"],
+          "options": {
+            "jestConfig": "libs/button1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "publish": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "libs/button1",
+            "command": "npm version patch & npm publish"
+          }
+        }
+      }
+    },
+    "e2e-storybook-e2e": {
+      "root": "apps/e2e/storybook-e2e",
+      "sourceRoot": "apps/e2e/storybook-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/e2e/storybook-e2e/cypress.json",
+            "devServerTarget": "storybook:storybook"
+          },
+          "configurations": {
+            "ci": {
+              "devServerTarget": "storybook:storybook:ci"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/e2e/storybook-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
     "func1": {
       "root": "apps/func1",
       "sourceRoot": "apps/func1/src",
@@ -258,6 +351,160 @@
         }
       }
     },
+    "pagination": {
+      "root": "libs/pagination",
+      "sourceRoot": "libs/pagination/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/pagination/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/pagination"],
+          "options": {
+            "jestConfig": "libs/pagination/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "storybook": {
+          "executor": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/pagination/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "executor": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/react",
+            "outputPath": "dist/storybook/pagination",
+            "config": {
+              "configFolder": "libs/pagination/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      }
+    },
+    "pagination-e2e": {
+      "root": "apps/pagination-e2e",
+      "sourceRoot": "apps/pagination-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/pagination-e2e/cypress.json",
+            "devServerTarget": "pagination:storybook"
+          },
+          "configurations": {
+            "ci": {
+              "devServerTarget": "pagination:storybook:ci"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/pagination-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "poc-page": {
+      "root": "libs/poc-page",
+      "sourceRoot": "libs/poc-page/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/poc-page/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/poc-page"],
+          "options": {
+            "jestConfig": "libs/poc-page/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "storybook": {
+          "executor": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/poc-page/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "executor": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/react",
+            "outputPath": "dist/storybook/poc-page",
+            "config": {
+              "configFolder": "libs/poc-page/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      }
+    },
+    "poc-page-e2e": {
+      "root": "apps/poc-page-e2e",
+      "sourceRoot": "apps/poc-page-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/poc-page-e2e/cypress.json",
+            "devServerTarget": "poc-page:storybook"
+          },
+          "configurations": {
+            "ci": {
+              "devServerTarget": "poc-page:storybook:ci"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/poc-page-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
     "my-package1": {
       "root": "libs/my-package1"
     },
@@ -334,6 +581,100 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/robin-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "storybook": {
+      "root": "libs/storybook",
+      "sourceRoot": "libs/storybook/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/storybook/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/storybook"],
+          "options": {
+            "jestConfig": "libs/storybook/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "storybook": {
+          "executor": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/storybook/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "executor": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/react",
+            "outputPath": "dist/storybook/storybook",
+            "config": {
+              "configFolder": "libs/storybook/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      }
+    },
+    "text-with-border": {
+      "root": "libs/text-with-border",
+      "sourceRoot": "libs/text-with-border/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/text-with-border/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/text-with-border"],
+          "options": {
+            "jestConfig": "libs/text-with-border/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "theme-provider": {
+      "root": "libs/theme-provider",
+      "sourceRoot": "libs/theme-provider/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/theme-provider/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/theme-provider"],
+          "options": {
+            "jestConfig": "libs/theme-provider/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }
