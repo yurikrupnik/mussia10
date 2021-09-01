@@ -8,6 +8,7 @@ on:
 env:
   NX_CLOUD_DISTRIBUTED_EXECUTION: true
   PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+  CI: true
 
 jobs:
   main:
@@ -32,8 +33,8 @@ jobs:
       - run: |-
           gcloud --quiet auth configure-docker
       - run: npx nx-cloud start-ci-run
-      - run: npx nx affected --target=build --parallel --max-parallel=3 --prod
       - run: npx nx affected --target=test --parallel --max-parallel=2
+      - run: npx nx affected --target=build --parallel --max-parallel=3 --prod
       - run: npx nx affected --target=lint --parallel --max-parallel=2
       - run: npx nx affected --target=e2e --parallel --max-parallel=3
       - run: NX_CLOUD_DISTRIBUTED_EXECUTION=false npx nx affected --target=deploy --parallel --max-parallel=3
