@@ -44,6 +44,10 @@
     "button1": {
       "tags": []
     },
+    "e2e-storybook-e2e": {
+      "tags": [],
+      "implicitDependencies": ["storybook"]
+    },
     "go-api": {
       "tags": []
     },
@@ -67,6 +71,9 @@
     "robin-e2e": {
       "tags": [],
       "implicitDependencies": ["robin"]
+    },
+    "storybook": {
+      "tags": []
     },
     "text-with-border": {
       "tags": []

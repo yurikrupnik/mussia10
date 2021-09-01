@@ -22,7 +22,6 @@ const createClasses = makeStyles((theme) => {
       alignItems: 'center',
       background: theme.palette.common.white,
       border: `1px solid ${theme.palette.primary[0]}`,
-      // border: `1px solid ${theme.palette.primary.light}`,
       borderRadius: theme.spacing(0.5),
       padding: 0,
       color: theme.palette.primary.main,

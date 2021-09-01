@@ -30,8 +30,10 @@ export function App() {
             <li>
               <Link to="/page-2">Page 2</Link>
             </li>
+            <li>
+              <Link to="/poc-page">Poc page</Link>
+            </li>
           </ul>
-          <PocPage />
         </div>
         <Route
           path="/"
@@ -52,6 +54,7 @@ export function App() {
             </div>
           )}
         />
+        <Route path="/poc-page" exact render={() => <PocPage />} />
         {/* END: routes */}
       </div>
     </ThemeProvider>

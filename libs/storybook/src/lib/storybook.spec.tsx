@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import TextWithBorder from './text-with-border';
+import Storybook from './storybook';
 
-describe('TextWithBorder', () => {
+describe('Storybook', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<TextWithBorder />);
+    const { baseElement } = render(<Storybook />);
     expect(baseElement).toBeTruthy();
   });
 });

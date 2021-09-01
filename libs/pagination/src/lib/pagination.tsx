@@ -77,6 +77,7 @@ const PaginationComponent = memo((props: PaginationComponentProps) => {
             case 'previous':
               children = (
                 <button
+                  data-testid="previousButton"
                   type="button"
                   className={`${classes.paginationButton} ${classes.marginRight2}`}
                   {...item} // eslint-disable-line
@@ -89,6 +90,7 @@ const PaginationComponent = memo((props: PaginationComponentProps) => {
               children = (
                 <button
                   data-testid="nextButton"
+                  data-cy="nextButton"
                   type="button"
                   className={`${classes.paginationButton} ${classes.marginLeft2}`}
                   {...item} // eslint-disable-line
@@ -150,7 +152,6 @@ const Pagination = (props: PaginationProps) => {
       count={count}
       rowsPerPage={rowsPerPage}
       page={page}
-      // onChangePage={onChangePage}
       onPageChange={onChangePage}
       labelDisplayedRows={labelDisplayedRows}
       labelRowsPerPage="Rows per page"

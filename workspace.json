@@ -216,6 +216,38 @@
             "jestConfig": "libs/button1/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "publish": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "libs/button1",
+            "command": "npm version patch & npm publish"
+          }
+        }
+      }
+    },
+    "e2e-storybook-e2e": {
+      "root": "apps/e2e/storybook-e2e",
+      "sourceRoot": "apps/e2e/storybook-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/e2e/storybook-e2e/cypress.json",
+            "devServerTarget": "storybook:storybook"
+          },
+          "configurations": {
+            "ci": {
+              "devServerTarget": "storybook:storybook:ci"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/e2e/storybook-e2e/**/*.{js,ts}"]
+          }
         }
       }
     },
@@ -472,6 +504,58 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/robin-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "storybook": {
+      "root": "libs/storybook",
+      "sourceRoot": "libs/storybook/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/storybook/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/storybook"],
+          "options": {
+            "jestConfig": "libs/storybook/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "storybook": {
+          "executor": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/storybook/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "executor": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/react",
+            "outputPath": "dist/storybook/storybook",
+            "config": {
+              "configFolder": "libs/storybook/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
           }
         }
       }
