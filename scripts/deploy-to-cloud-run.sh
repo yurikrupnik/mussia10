@@ -5,10 +5,10 @@ set -e
 gc_image=eu.gcr.io/mussia8/$name
 
 docker build -t $gc_image . --force-rm
-echo 'Finished building'
+echo 'Finished building!'
 
 docker push $gc_image
-echo 'Finished pushing'
+echo 'Finished pushing!'
 
 ##  --no-traffic \
 ##  --tag=tag1 \
