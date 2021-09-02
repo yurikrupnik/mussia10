@@ -6,7 +6,7 @@ services:
     ports:
       - 27017:27017
   batman-api:
-    image: gcr.io/mussia8/batman-api
+    image: eu.gcr.io/mussia8/batman-api
     build:
       context: apps/batman-api
       dockerfile: Dockerfile

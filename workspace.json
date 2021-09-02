@@ -108,7 +108,8 @@
             "outputPath": "dist/apps/batman-api",
             "main": "apps/batman-api/src/main.ts",
             "tsConfig": "apps/batman-api/tsconfig.app.json",
-            "assets": ["apps/batman-api/src/assets"]
+            "assets": ["apps/batman-api/src/assets"],
+            "generatePackageJson": true
           },
           "configurations": {
             "production": {
@@ -149,7 +150,29 @@
           "options": {
             "file": "apps/batman-api/Dockerfile",
             "push": false,
-            "tags": ["mussia10/batman-api:latest", "mussia10/batman-api:v1"]
+            "tags": ["eu.gcr.io/mussia8/batman-api:latest", "eu.gcr.io/mussia8/batman-api:v1"]
+          }
+        },
+        "deploy": {
+          "executor": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "cwd": "apps/batman-api/",
+            "commands": [
+              "docker build -t eu.gcr.io/mussia8/batman-api . --force-rm",
+              "docker images",
+              "docker push eu.gcr.io/mussia8/batman-api",
+              "gcloud run deploy batman-api --image eu.gcr.io/mussia8/batman-api --platform managed  --allow-unauthenticated  --region europe-west1 --port 3333"
+            ],
+            "parallel": false
+          }
+        },
+        "deploy-sh": {
+          "executor": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "name=batman-api bash ../../scripts/deploy-to-cloud-run.sh",
+            "cwd": "apps/batman-api"
           }
         }
       }

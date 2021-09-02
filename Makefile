@@ -9,3 +9,8 @@ ra:
 	npx nx run-many --target=${target} --parallel --all
 raa:
 	npx nx affected --target=${target} --parallel --all
+
+
+gcp-run:
+	#gc_image=eu.gcr.io/mussia8/${name}
+	docker build  . --force-rm
