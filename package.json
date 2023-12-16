@@ -34,7 +34,7 @@
     "react-router-dom": "5.2.0",
     "react-svg": "14.0.10",
     "reflect-metadata": "^0.1.13",
-    "regenerator-runtime": "0.13.7",
+    "regenerator-runtime": "0.14.1",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.0"
   },
